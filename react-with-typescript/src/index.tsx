@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd';
 
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // import global style
@@ -20,8 +20,8 @@ import 'moment/locale/ko';
 import { AuthRoute } from '@/router';
 import { Login } from '@/pages';
 
-
 import App from '@/App.tsx';
+
 moment.locale('ko');
 
 // theme 설정 : scss variable로 작성한 scss파일을 antd 초기화에 사용하고 styled-components의 theme로 사용
@@ -32,22 +32,22 @@ const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./st
 // Provider 정의
 // ConfigProvider = https://ant.design/components/config-provider/
 
-const Root = () => {
-  return (
-    <ConfigProvider locale={koKR}>
-     <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <Route path="/login" component={Login} />
-            <AuthRoute path="*">
-              <App />
-            </AuthRoute>
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </ConfigProvider> 
-  )
-};
+function Root(): ReactElement {
+	return (
+		<ConfigProvider locale={koKR}>
+			<ThemeProvider theme={theme}>
+				<Router>
+					<Switch>
+						<Route path="/login" component={Login} />
+						<AuthRoute path="*">
+							<App />
+						</AuthRoute>
+					</Switch>
+				</Router>
+			</ThemeProvider>
+		</ConfigProvider>
+	);
+}
 
 ReactDOM.render(<Root />, document.getElementById('root'));
 

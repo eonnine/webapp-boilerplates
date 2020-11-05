@@ -1,39 +1,48 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./",
+    "target": "es2015",
     "typeRoots": [
-      "node_modules/@types"
+      "src/types/",
+      "node_modules/@types/",
+      "**/node_modules/@types/"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
-    "noImplicitAny": false,
-    "jsx": "react",
-    "allowJs": true,
-    "checkJs": false,
-    "maxNodeModuleJsDepth": 0,
-    "strict": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "sourceMap": true,
+    "noImplicitAny": false,
+    "jsx": "react",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "noEmit": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "isolatedModules": true
   },
   "exclude": [
     "build",
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.tsx",
+    "src/setupTests.ts",
+    "src/assets/*.*"
   ],
+  "extends": "./tsconfig.paths.json",
   "include": [
-    "src"
-  ],
-  "extends": "./tsconfig.paths.json"
+    "src/**/*"
+  ]
 }

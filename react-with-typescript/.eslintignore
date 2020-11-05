@@ -1,15 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
 # production
-/build
+build
 
 # misc
 .DS_Store
@@ -26,4 +26,16 @@ yarn-error.log*
 src/serviceWorker.ts
 
 #test
-src/**.test.tsx
+*.test.tsx
+src/setupTests.ts
+
+# configs
+config-overrides.js
+tsconfig.json
+tsconfig.paths.json
+
+# types
+*.d.ts
+
+#server schema
+src/graphql/schema.tsx

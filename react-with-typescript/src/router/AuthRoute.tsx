@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
-const AuthRoute: React.FunctionComponent<RouteProps> = (props) => {
-  const { children, ...rest } = props;
-  const isLogin = true;
-  
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        isLogin ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
+export const fakeAuth = {
+	isAuthenticated: true,
+	authenticate(cb): any {
+		fakeAuth.isAuthenticated = true;
+		setTimeout(cb, 100); // fake async
+		return null;
+	},
+	signout(cb): any {
+		fakeAuth.isAuthenticated = false;
+		setTimeout(cb, 100);
+		return null;
+	},
+};
+
+export default function AuthRoute({ children, ...rest }: RouteProps): ReactElement {
+	return (
+		<Route
+			{...rest}
+			render={({ location }): ReactNode =>
+				fakeAuth.isAuthenticated ? (
+					children
+				) : (
+					<Redirect
+						to={{
+							pathname: '/login',
+							state: { from: location },
+						}}
+					/>
+				)
+			}
+		/>
+	);
 }
-export default AuthRoute;

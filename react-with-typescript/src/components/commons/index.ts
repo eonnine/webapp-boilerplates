@@ -1,5 +1,3 @@
-import { Spinner } from './utils';
+import { Spinner, Loading } from './utils';
 
-export {
-  Spinner
-}
+export { Spinner, Loading };

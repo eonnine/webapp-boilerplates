@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Layout } from 'antd';
 
-const { Footer } = Layout; 
+const { Footer } = Layout;
 
-const FooterComponent: React.FunctionComponent = () => {
-  return (
-    <Footer>COPYRIGHTS(c) 2020 SolarConnect,Inc ALL RIGHTS RESERVED.</Footer>
-  )
-};
+function FooterComponent(): ReactElement {
+	return (
+		<Footer className="footer">
+			<p>Footer</p>
+		</Footer>
+	);
+}
 
 export default FooterComponent;

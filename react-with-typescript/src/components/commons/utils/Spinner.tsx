@@ -1,29 +1,44 @@
-import * as React from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 import { Spin, Row, Col } from 'antd';
 import { SpinSize } from 'antd/lib/spin';
-import { LoadingOutlined } from '@ant-design/icons';
+
+import { Loading } from '@/components/commons';
 
 interface ISpinnerProps {
-  tip?: string;
-  size?: SpinSize;
-  delay?: number;
+	tip?: string;
+	size?: SpinSize;
+	delay?: number;
+	style?: React.CSSProperties;
+	mask?: boolean;
 }
 
-const Spinner: React.FunctionComponent<ISpinnerProps> = ({ tip, size, delay }) => {
-  const antIcon = <LoadingOutlined style={{ fontSize: size === 'large' ? 48 : 24 }} spin />;
-  return (
-    <Row className="spinner-wrap" justify="center" align="middle">
-      <Col>
-        <Spin indicator={antIcon} delay={delay} tip={tip} size={size} />
-      </Col>
-    </Row>
-  );
-};
+interface IWrapperProp {
+	readonly ['data-mask']: boolean;
+}
+
+const StyledSpinnerWrapper = styled(Row)<IWrapperProp>`
+	background-color: ${(styleProps: any): string => (styleProps['data-mask'] ? 'rgba(0, 0, 0, 0.1)' : 'transparent')};
+`;
+
+function Spinner(props: ISpinnerProps): ReactElement {
+	const { tip, size, delay, style, mask = false } = props;
+
+	return (
+		<StyledSpinnerWrapper className="spinner-wrap" justify="center" align="middle" style={style} data-mask={mask}>
+			<Col>
+				<Spin indicator={<Loading size={size} />} delay={delay} tip={tip} size={size} />
+			</Col>
+		</StyledSpinnerWrapper>
+	);
+}
 
 Spinner.defaultProps = {
-  tip: '',
-  size: 'default',
-  delay: 0
-}
+	tip: '로딩중입니다.',
+	size: 'large',
+	delay: 0,
+	style: {},
+	mask: false,
+};
 
 export default Spinner;
