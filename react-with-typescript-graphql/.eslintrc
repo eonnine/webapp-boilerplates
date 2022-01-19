@@ -1,0 +1,70 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"extends": ["plugin:react/recommended", "plugin:import/typescript", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+	"plugins": ["@typescript-eslint", "prettier"],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "./"
+			}
+		}
+	},
+	"rules": {
+		"react/react-in-jsx-scope": 0,
+		"import/no-webpack-loader-syntax": 0,
+		"@typescript-eslint/explicit-module-boundary-types": 0,
+		"@typescript-eslint/no-unused-vars": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"@typescript-eslint/no-var-requires": 0
+
+		// "linebreak-style": 0,q
+		// "import/prefer-default-export": 0,
+		// "prettier/prettier": 0,
+		// "import/extensions": 0,
+		// "no-use-before-define": 0,
+		// "import/no-unresolved": 0,
+		// "import/no-extraneous-dependencies": 0,
+		// "no-shadow": 0,
+		// "no-console": 0,
+		// "react/prop-types": 0,
+		// "react/jsx-filename-extension": [
+		//   2,
+		//   {
+		//     "extensions": [
+		//       ".js",
+		//       ".jsx",
+		//       ".ts",
+		//       ".tsx"
+		//     ]
+		//   }
+		// ],
+		// "react/no-array-index-key": 0,
+		// "react/jsx-props-no-spreading": 0,
+		// "noUnusedLocals": 0,
+		// "react/jsx-uses-react": 0,
+		// "react/react-in-jsx-scope": 0,
+		// "@typescript-eslint/no-var-requires": 0,
+		// "jsx-a11y/no-noninteractive-element-interactions": 0,
+		// "react/function-component-definition": 0
+	}
+}

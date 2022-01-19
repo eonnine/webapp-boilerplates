@@ -1,5 +1,6 @@
-import Footer from './Footer';
+import FullLayout from './FullLayout';
+import SubLayout from './SubLayout';
 
-export {
-  Footer
-}
+import { Footer } from './footer';
+
+export { FullLayout, SubLayout, Footer };

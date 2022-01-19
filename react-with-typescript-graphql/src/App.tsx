@@ -1,15 +1,34 @@
-import React, { Suspense } from 'react';
-import { Switch, SwitchProps } from 'react-router-dom';
-import { routes, SubRoutes } from '@/router';
+import React, { ReactElement } from 'react';
+import { Layout } from 'antd';
+import { Routes, Route } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
 
-import { Spinner } from '@/components/commons';
+import { routes } from '@src/router';
+import { Footer } from '@src/layouts';
 
-const App: React.FunctionComponent<SwitchProps> = () => (
-  <Suspense fallback={<Spinner tip="로딩중입니다." size="large" />}>
-    <Switch>
-      {routes.map((route: any) => <SubRoutes key={route.path} {...route} />)}
-    </Switch>
-  </Suspense>
-);
+function getRoutes(route: RouteObject): ReactElement {
+	if (route.children) {
+		return (
+			<Route key={Math.random()} {...route} element={<React.Suspense fallback={<span>&nbsp;</span>}>{route.element}</React.Suspense>}>
+				{route.children.map((child: RouteObject) => {
+					return getRoutes(child);
+				})}
+			</Route>
+		);
+	}
+	return <Route key={Math.random()} {...route} element={<React.Suspense fallback={<span>&nbsp;</span>}>{route.element}</React.Suspense>} />;
+}
 
-export default App;
+export default function App(): ReactElement {
+	return (
+		<Layout className="home-webapp">
+			<Routes>
+				{routes.map((route: RouteObject) => {
+					return getRoutes(route);
+				})}
+			</Routes>
+			{/* Footer layout */}
+			<Footer />
+		</Layout>
+	);
+}

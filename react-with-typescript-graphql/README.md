@@ -1,6 +1,6 @@
 # React-With-Typescript-Graphql
 
-install 
+install
 
 ```
 strix-cli my-app react-with-typescript-graphql
@@ -11,11 +11,13 @@ strix-cli my-app react-with-typescript-graphql
 ## Envioronment
 
 ### Customize configuration
+
 See [Configuration Reference](https://create-react-app.dev/docs/documentation-intro).
 
 ---
 
 ## Dependencies
+
 UI Framework : [Ant Design @3.26.2](https://ant.design/docs/react/introduce)
 react-router-dom : [react-router-dom@^5.1.2](https://reacttraining.com/react-router/)
 moment: [moment@^2.24.0](https://momentjs.com/docs/)
@@ -113,7 +115,7 @@ project
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -121,12 +123,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -136,19 +138,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn lint`
+### `npm format`
 
 ```bash
 # eslint와 prettier를 실행합니다.
 eslint --fix -c .eslintrc.js --ignore-path .eslintignore src/**/*.{ts,tsx} && prettier --config .prettierrc.js --write src/**/*.{ts,tsx,scss}
 ```
 
-### `yarn generate`
-
-```bash
-#codegen.yml 설정에 의해 서버에서 schema를 다운받아 저장합니다.
-graphql-codegen --config codegen.yml
-```
-
 ## Deployment
-* 정적파일을 deploy하려면 [deploy](https://velog.io/@gwak2837/GitHub-Pages-gh-pages%EB%A1%9C-%EB%AC%B4%EB%A3%8C-%EC%9B%B9-%ED%98%B8%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0)을 참고하세요.
+
+- 정적파일을 deploy하려면 [deploy](https://velog.io/@gwak2837/GitHub-Pages-gh-pages%EB%A1%9C-%EB%AC%B4%EB%A3%8C-%EC%9B%B9-%ED%98%B8%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0)을 참고하세요.
